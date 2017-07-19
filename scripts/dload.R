@@ -5,6 +5,8 @@ library(stringr)
 library(data.table)
 library(optparse)
 
+# If you have proxy, then all proxy needs to be disabled, including the one
+# set in .Renviron
 
 option_list <- list(
     make_option(c("-i", "--input"),
@@ -31,14 +33,14 @@ for (folder in folderz) {
         print(paste(Sys.time(), ": processing folder ", folder, " into ", path))
         filenames <- getURL(folder, userpwd = userpwd,
                     ftp.use.epsv = FALSE, dirlistonly = TRUE)
-        print(filenames)
+        # print(filenames)
         filenames <- strsplit(filenames, "\n", fixed = FALSE,
             perl = FALSE, useBytes = FALSE)[[1]]
         filenames <- filenames[grepl("*.gz", filenames)]
         print(filenames)
         for (f in filenames) {
             uri <- paste0(folder, f)
-            print(uri)
+            # print(uri)
             print(paste(Sys.time(), ": downloading file ",
                 f, " into ", file.path(path, f)))
             curl_fetch_disk(uri, file.path(path, f))
