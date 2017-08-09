@@ -20,7 +20,7 @@ opt <- parse_args(OptionParser(option_list = option_list))
 store_path <- opt$output
 
 # setwd(store_path)
-folderz <- unlist(fread(opt$input, sep = "\t"))
+folderz <- unlist(fread(opt$input, sep = "\t", header=FALSE))
 #
 userpwd <- "anonymous:anonymous"
 #
