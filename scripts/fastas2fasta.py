@@ -40,17 +40,19 @@ def main():
     parser = cmdline_parser()
     args = parser.parse_args()
 
-    if os.path.exist(args.OUTPUT) is False:
-        os.makedir(args.OUTPUT)
+    if os.path.exists(args.OUTPUT) is False:
+        os.makedirs(args.OUTPUT)
 
-    sequence = SeqIO.parse(args.INPUT)
+    sequence = SeqIO.parse(args.INPUT, "fasta")
     for seq in sequence:
         if 'complete genome' in seq.description:
             filename = re.sub('[^a-zA-Z0-9\n]', '_', seq.description) + ".fna"
-            SeqIO.write(seq, filename, 'fasta')
+            out_file = os.path.join(args.OUTPUT, filename)
+            SeqIO.write(seq, out_file, 'fasta')
         elif 'partial genome' in seq.description:
             filename = re.sub('[^a-zA-Z0-9\n]', '_', seq.description) + ".contig"
-            SeqIO.write(seq, filename, 'fasta')
+            out_file = os.path.join(args.OUTPUT, filename)
+            SeqIO.write(seq, out_file, 'fasta')
 
 if __name__ == '__main__':
     main()
