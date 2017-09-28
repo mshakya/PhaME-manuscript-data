@@ -39,3 +39,6 @@ unzip_genomes:
 	find EcoliShigella_PhaME/ref -iname "*.fna" -exec cp {} EcoliShigella_PhaME/ref\;
 	rm -rf EcoliShigella_PhaME/ref/Shigella2017 EcoliShigella_PhaME/ref/CompleteEcoli
 	touch $@
+
+
+GCA_000022245_1_ASM2224v1_genomic
