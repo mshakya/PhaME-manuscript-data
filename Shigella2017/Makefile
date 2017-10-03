@@ -2,7 +2,7 @@ all:Shigella_assembly_summary_genbank.txt complete_Shigella_ftp_addresses.txt \
 	CompleteShigella CompleteShigella/GCA_900174625.1_WI1-reUpload
 
 ##################################################################################################
-# Downloads complete and incomplete Shigella genomes
+
 ##################################################################################################
 Shigella_assembly_summary_genbank.txt:
 	@echo "Subsetting lines that contain Shigella from summary assembly files"
@@ -34,6 +34,7 @@ complete_complete:
 	find Shigella_PhaME/ref -iname "*.gz" -exec gzip -d {} \;
 	touch $@
 
+################################################################################
 
 incomplete:incomplete_Shigella_ftp_addresses.txt InCompleteShigella \
 	InCompleteShigella/GCA_900177355.1_IMG-taxon_2608642167_annotated_assembly \
@@ -62,3 +63,19 @@ incomplete_incomplete:
 	find Shigella_PhaME/InCompleteShigella -iname "*.gz" -exec gzip -d {} \;
 	touch $@
 
+################################################################################
+
+rand_100_Shigella_draft:rand_100_shigella_draft_genomes rand_100_shigella_draft_ftp_addresses.txt rand_100_shigella_draft_genomes/GCA_002109845.1_ASM210984v1
+
+rand_100_shigella_draft_genomes:
+	mkdir -p $@
+
+rand_100_shigella_draft_ftp_addresses.txt:Shigella_assembly_summary_genbank.txt
+	@echo "Subsetting ftp addressses of random shigella draft genomes"
+	grep "Shigella" $< | shuf -n 100 | grep "Contig\|Scaffold" | awk -F'\t' '{ print $$20 }' | sed 's/$$/\//g' > $@
+
+rand_100_shigella_draft_genomes/GCA_002109845.1_ASM210984v1:../scripts/dload.R rand_100_shigella_draft_ftp_addresses.txt
+	@echo "Downloading complete genomes as listed in  *.txt file"
+	Rscript $< -i $(word 2, $^) -o rand_100_shigella_draft_genomes
+
+################################################################################
