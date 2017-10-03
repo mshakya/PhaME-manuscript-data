@@ -2,7 +2,7 @@ all:Escherichia_assembly_summary_genbank.txt complete_Escherichia_ftp_addresses.
 	CompleteEscherichia CompleteEscherichia/GCA_900174625.1_WI1-reUpload
 
 ##################################################################################################
-# Downloads complete and incomplete Eschericia genomes
+
 ##################################################################################################
 Escherichia_assembly_summary_genbank.txt:
 	@echo "Subsetting lines that contain Escherichia from summary assembly files"
@@ -62,3 +62,18 @@ incomplete_incomplete:
 	find Escherichia_PhaME/InCompleteEscherichia -iname "*.gz" -exec gzip -d {} \;
 	touch $@
 
+
+Non_ecoli_draft:non_ecoli_draft_genomes non_ecoli_incomplete_Eschericia_ftp_addresses.txt \
+	non_ecoli_draft_genomes/GCA_002109845.1_ASM210984v1
+# To download incomplete non_ecoli genomes
+non_ecoli_draft_genomes:
+	mkdir -p $@
+
+non_ecoli_incomplete_Eschericia_ftp_addresses.txt:Escherichia_assembly_summary_genbank.txt
+	@echo "Subsetting ftp addressses of non-ecoli draft genomes"
+	grep -v "coli"  $< | grep "Contig\|Scaffold" | awk -F'\t' '{ print $$20 }' | sed 's/$$/\//g' > $@
+
+
+non_ecoli_draft_genomes/GCA_002109845.1_ASM210984v1:../scripts/dload.R non_ecoli_incomplete_Eschericia_ftp_addresses.txt
+	@echo "Downloading complete genomes as listed in  *.txt file"
+	Rscript $< -i $(word 2, $^) -o non_ecoli_draft_genomes
