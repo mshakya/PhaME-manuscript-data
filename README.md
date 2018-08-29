@@ -7,9 +7,13 @@ Results of PhaME run for the manuscript. Names of the folders and a short descri
 It contains PhaME results for Burkholderia analysis.
 
 ###  Ecoli_metagenome
-It contains PhaME results of analysis of a metagenome dataset and E. coli genomes.
+It contains results of analyzing metagenome datasets and E. coli genomes.
 
 ### Saccharomyces2017
+It contains results of analyzing Saccharomyces genomes.
 
+### Esch-Shig-Salm
+It contains results of analyzing Escherichia, Shigella, Salmonalla, Atlantibacter, and Shimwellia genomes.
 
-### Saccharomyces2017
+### CompEscherichiaGroups
+It contais results of analyzing E. coli and Shigella genomes.
