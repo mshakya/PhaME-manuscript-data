@@ -1,19 +1,28 @@
 PhaME manuscript data
 =====================
 
-Results of PhaME run for the manuscript. Names of the folders and a short descriptipn of what is in those folder is listed below.
+This repo contains control files that were used for analyses in the manuscript. File names corresponds to figures in the paper.
 
-### BurkhGroupsRead2017
-It contains PhaME results for Burkholderia analysis.
+figure02.ctl
+figure03.ctl
+figure04.ctl
+figure05.ctl
+figure06.ctl
+figureS07.ctl
+figureS10.ctl
+figureS11.ctl
+assembly_summary_genbank.txt.gz
 
-###  Ecoli_metagenome
-It contains results of analyzing metagenome datasets and E. coli genomes.
 
-### Saccharomyces2017
-It contains results of analyzing Saccharomyces genomes.
 
-### Esch-Shig-Salm
-It contains results of analyzing Escherichia, Shigella, Salmonalla, Atlantibacter, and Shimwellia genomes.
 
-### CompEscherichiaGroups
-It contais results of analyzing E. coli and Shigella genomes.
+
+
+
+
+
+
+
+
+
+
