@@ -9,9 +9,9 @@ This repo contains control files that were used for analyses in the manuscript. 
 * figure04.ctl
 * figure05.ctl
 * figure06.ctl
-* figureS07.ctl
-* figureS10.ctl
-* figureS11.ctl
+* figureS06.ctl
+* figureS08.ctl
+* figureS09.ctl
 * assembly_summary_genbank.txt.gz
 
 
