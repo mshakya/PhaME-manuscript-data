@@ -1,7 +1,7 @@
        refdir = ref_sle  # directory where reference files are located
       workdir = sle_workdir # directory where contigs/reads files are located and output is stored
 
-    reference = 1  # 0:pick a random reference; 1:use given reference
+    reference = 1  # 0:pick a random reference; 1:use given reference; 2: pick a reference based on mash distance
       reffile = EBOV_G4907.1_KR105277_SLE_Kenema_20140812.fa   # reference filename 
 
       project = 99sle  # main alignment file name
@@ -14,10 +14,12 @@
                    # 3:combination F+C; 4:combination F+R; 5:combination C+R; 
                    # 6:combination F+C+R; 7:realignment  *See below 
         reads = 2  # 1: single reads; 2: paired reads; 3: both types present;
-   SNPSfilter = 0.6
-			aligner = bwa # name of the aligner
-         tree = 1  # 0:no tree; 1:use FastTree; 2:use RAxML; 3:use both;
-    modelTest = 0  # 0:no; 1:yes; # Only used when building a tree using RAxML
+
+   SNPSfilter = 0.6 # proportion of polymorphic site (based off total coverage)
+   
+			aligner = bwa # name of the aligner # bowtie2 or bwa
+
+         tree = 4  # 0:no tree; 1:use FastTree; 2:use RAxML; 3: use IQ-TREE; 4:use all;
     bootstrap = 1  # 0:no; 1:yes;  # Run bootstrapping  *See below
             N = 100  # Number of bootstraps to run *See below
 

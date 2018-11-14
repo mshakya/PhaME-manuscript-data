@@ -1,7 +1,7 @@
        refdir = ref  # directory where reference files are located
       workdir = workdir # directory where contigs/reads files are located and output is stored
 
-    reference = 1  # 0:pick a random reference; 1:use given referencei 2: use mash to determine the best reference
+    reference = 1  # 0:pick a random reference; 1:use given reference; 2: pick a reference based on mash distance
       reffile = GCA_002128365.1_ASM212836v1_genomic.fna  # reference filename 
 
       project = EschAll  # main alignment file name
@@ -17,7 +17,9 @@
                    # 6:combination F+C+R; 7:realignment  *See below 
         reads = 2  # 1: single reads; 2: paired reads; 3: both types present;
 
-         tree = 3  # 0:no tree; 1:use FastTree; 2:use RAxML; 3:use both;
+   SNPSfilter = 0.0 # proportion of polymorphic site (based off total coverage)
+
+         tree = 2  # 0:no tree; 1:use FastTree; 2:use RAxML; 3: use IQ-TREE; 4:use all;
     bootstrap = 1  # 0:no; 1:yes;  # Run bootstrapping  *See below
             N = 100  # Number of bootstraps to run *See below
       

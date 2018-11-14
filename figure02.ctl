@@ -1,5 +1,5 @@
        refdir = ref  # directory where reference files are located
-      workdir = PhaME1 # directory where contigs/reads files are located and output is stored
+      workdir = workdir # directory where contigs/reads files are located and output is stored
 
     reference = 2  # 0:pick a random reference; 1:use given reference; 2: pick a reference based on mash distance
       reffile = GCA_002111145.1_ASM211114v1_genomic.fna  # reference filename 
@@ -16,8 +16,10 @@
                    # 3:combination F+C; 4:combination F+R; 5:combination C+R; 
                    # 6:combination F+C+R; 7:realignment  *See below 
         reads = 2  # 1: single reads; 2: paired reads; 3: both types present;
+      
+   SNPSfilter = 0.0 # proportion of polymorphic site (based off total coverage)
 
-         tree = 3  # 0:no tree; 1:use FastTree; 2:use RAxML; 3: use IQ-TREE; 4:use both;
+         tree = 2  # 0:no tree; 1:use FastTree; 2:use RAxML; 3: use IQ-TREE; 4:use all;
     bootstrap = 1  # 0:no; 1:yes;  # Run bootstrapping  *See below
             N = 100  # Number of bootstraps to run *See below
       
