@@ -4,7 +4,7 @@
     reference = 2  # 0:pick a random reference; 1:use given reference; 2: pick a reference based on mash distance
       reffile = EBOV_GueckedouC07_KJ660347_GIN_Gueckedou_20140320.fa   # reference filename 
 
-      project = ebola_threshld_095  # main alignment file name
+      project = ebola_threshld_099  # main alignment file name
 
       cdsSNPS = 0  # 0:no cds SNPS; 1:cds SNPs
 
